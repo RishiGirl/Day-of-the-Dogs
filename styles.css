@@ -228,18 +228,23 @@ body {
 .ear-left {
     left: 5px;
     transform: rotate(-20deg);
-    animation: earWiggle 1s ease-in-out infinite;
+    animation: earWiggleLeft 1s ease-in-out infinite;
 }
 
 .ear-right {
     right: 5px;
     transform: rotate(20deg);
-    animation: earWiggle 1s ease-in-out infinite 0.5s;
+    animation: earWiggleRight 1s ease-in-out infinite 0.5s;
 }
 
-@keyframes earWiggle {
+@keyframes earWiggleLeft {
     0%, 100% { transform: rotate(-20deg); }
     50% { transform: rotate(-30deg); }
+}
+
+@keyframes earWiggleRight {
+    0%, 100% { transform: rotate(20deg); }
+    50% { transform: rotate(30deg); }
 }
 
 .eye {
