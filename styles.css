@@ -8,7 +8,7 @@ body {
     font-family: 'Arial', sans-serif;
     background: linear-gradient(to bottom, #87CEEB 0%, #98D8E8 100%);
     min-height: 100vh;
-    overflow: hidden;
+    overflow-x: hidden;
 }
 
 .container {
