@@ -1,0 +1,449 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(to bottom, #87CEEB 0%, #98D8E8 100%);
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+.container {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+}
+
+.title {
+    text-align: center;
+    color: #fff;
+    font-size: 3em;
+    padding: 20px;
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+    animation: titleBounce 2s ease-in-out infinite;
+}
+
+@keyframes titleBounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+.subtitle {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #fff;
+    font-size: 1.5em;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    animation: pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.6; }
+}
+
+.scene {
+    position: relative;
+    width: 100%;
+    height: calc(100vh - 150px);
+}
+
+/* Sun Animation */
+.sun {
+    position: absolute;
+    top: 50px;
+    right: 100px;
+    width: 80px;
+    height: 80px;
+    background: radial-gradient(circle, #FFD700 60%, #FFA500 100%);
+    border-radius: 50%;
+    box-shadow: 0 0 30px #FFD700;
+    animation: sunRotate 20s linear infinite;
+}
+
+@keyframes sunRotate {
+    0% { transform: rotate(0deg); box-shadow: 0 0 30px #FFD700; }
+    50% { box-shadow: 0 0 50px #FFD700; }
+    100% { transform: rotate(360deg); box-shadow: 0 0 30px #FFD700; }
+}
+
+/* Cloud Animations */
+.cloud {
+    position: absolute;
+    background: white;
+    border-radius: 100px;
+    opacity: 0.8;
+}
+
+.cloud::before,
+.cloud::after {
+    content: '';
+    position: absolute;
+    background: white;
+    border-radius: 100px;
+}
+
+.cloud1 {
+    width: 80px;
+    height: 30px;
+    top: 100px;
+    left: 10%;
+    animation: floatCloud 25s linear infinite;
+}
+
+.cloud1::before {
+    width: 50px;
+    height: 40px;
+    top: -20px;
+    left: 10px;
+}
+
+.cloud1::after {
+    width: 40px;
+    height: 35px;
+    top: -15px;
+    right: 10px;
+}
+
+.cloud2 {
+    width: 100px;
+    height: 35px;
+    top: 150px;
+    left: 40%;
+    animation: floatCloud 30s linear infinite;
+}
+
+.cloud2::before {
+    width: 60px;
+    height: 45px;
+    top: -25px;
+    left: 15px;
+}
+
+.cloud2::after {
+    width: 50px;
+    height: 40px;
+    top: -20px;
+    right: 15px;
+}
+
+.cloud3 {
+    width: 90px;
+    height: 32px;
+    top: 120px;
+    left: 70%;
+    animation: floatCloud 35s linear infinite;
+}
+
+.cloud3::before {
+    width: 55px;
+    height: 42px;
+    top: -22px;
+    left: 12px;
+}
+
+.cloud3::after {
+    width: 45px;
+    height: 38px;
+    top: -18px;
+    right: 12px;
+}
+
+@keyframes floatCloud {
+    0% { left: -10%; }
+    100% { left: 110%; }
+}
+
+/* Ground */
+.ground {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 150px;
+    background: linear-gradient(to bottom, #90EE90 0%, #228B22 100%);
+    border-top: 4px solid #32CD32;
+}
+
+/* Dog Styles */
+.dog {
+    position: absolute;
+    bottom: 150px;
+}
+
+.dog1 {
+    left: 10%;
+    animation: dogWalk1 8s ease-in-out infinite;
+}
+
+.dog2 {
+    right: 10%;
+    animation: dogWalk2 10s ease-in-out infinite;
+    transform: scaleX(-1);
+}
+
+@keyframes dogWalk1 {
+    0%, 100% { left: 10%; }
+    50% { left: 30%; }
+}
+
+@keyframes dogWalk2 {
+    0%, 100% { right: 10%; }
+    50% { right: 35%; }
+}
+
+.dog-body {
+    position: relative;
+    animation: dogBounce 0.5s ease-in-out infinite;
+}
+
+@keyframes dogBounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+}
+
+.dog-head {
+    position: relative;
+    width: 60px;
+    height: 50px;
+    background: #D2691E;
+    border-radius: 50% 50% 45% 45%;
+    margin-bottom: -10px;
+    z-index: 2;
+}
+
+.ear {
+    position: absolute;
+    width: 20px;
+    height: 30px;
+    background: #A0522D;
+    border-radius: 50%;
+    top: 5px;
+}
+
+.ear-left {
+    left: 5px;
+    transform: rotate(-20deg);
+    animation: earWiggleLeft 1s ease-in-out infinite;
+}
+
+.ear-right {
+    right: 5px;
+    transform: rotate(20deg);
+    animation: earWiggleRight 1s ease-in-out infinite 0.5s;
+}
+
+@keyframes earWiggleLeft {
+    0%, 100% { transform: rotate(-20deg); }
+    50% { transform: rotate(-30deg); }
+}
+
+@keyframes earWiggleRight {
+    0%, 100% { transform: rotate(20deg); }
+    50% { transform: rotate(30deg); }
+}
+
+.eye {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: #000;
+    border-radius: 50%;
+    top: 20px;
+}
+
+.eye-left {
+    left: 15px;
+}
+
+.eye-right {
+    right: 15px;
+}
+
+.nose {
+    position: absolute;
+    width: 12px;
+    height: 10px;
+    background: #000;
+    border-radius: 50% 50% 50% 50%;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.mouth {
+    position: absolute;
+    width: 20px;
+    height: 10px;
+    border: 2px solid #000;
+    border-top: none;
+    border-radius: 0 0 50% 50%;
+    bottom: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.dog-torso {
+    position: relative;
+    width: 80px;
+    height: 40px;
+    background: #D2691E;
+    border-radius: 40px 40px 30px 30px;
+    z-index: 1;
+}
+
+.leg {
+    position: absolute;
+    width: 12px;
+    height: 25px;
+    background: #A0522D;
+    border-radius: 0 0 6px 6px;
+    bottom: -25px;
+}
+
+.leg1 {
+    left: 10px;
+    animation: legMove 0.5s ease-in-out infinite;
+}
+
+.leg2 {
+    left: 28px;
+    animation: legMove 0.5s ease-in-out infinite 0.25s;
+}
+
+.leg3 {
+    right: 28px;
+    animation: legMove 0.5s ease-in-out infinite;
+}
+
+.leg4 {
+    right: 10px;
+    animation: legMove 0.5s ease-in-out infinite 0.25s;
+}
+
+@keyframes legMove {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-3px); }
+}
+
+.tail {
+    position: absolute;
+    width: 30px;
+    height: 8px;
+    background: #A0522D;
+    border-radius: 10px;
+    right: -25px;
+    top: 5px;
+    transform-origin: left center;
+    animation: tailWag 0.3s ease-in-out infinite;
+}
+
+@keyframes tailWag {
+    0%, 100% { transform: rotate(-20deg); }
+    50% { transform: rotate(20deg); }
+}
+
+/* Bones Animation */
+.bone {
+    position: absolute;
+    font-size: 2em;
+    animation: boneFloat 4s ease-in-out infinite;
+}
+
+.bone1 {
+    top: 30%;
+    left: 20%;
+    animation-delay: 0s;
+}
+
+.bone2 {
+    top: 40%;
+    right: 25%;
+    animation-delay: 1.3s;
+}
+
+.bone3 {
+    top: 25%;
+    left: 50%;
+    animation-delay: 2.6s;
+}
+
+@keyframes boneFloat {
+    0%, 100% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0.7;
+    }
+    50% {
+        transform: translateY(-20px) rotate(180deg);
+        opacity: 1;
+    }
+}
+
+/* Paw Prints Animation */
+.paw-print {
+    position: absolute;
+    font-size: 1.5em;
+    animation: pawFade 3s ease-in-out infinite;
+    color: rgba(101, 67, 33, 0.5);
+}
+
+.paw1 {
+    bottom: 200px;
+    left: 15%;
+    animation-delay: 0s;
+}
+
+.paw2 {
+    bottom: 220px;
+    left: 20%;
+    animation-delay: 0.5s;
+}
+
+.paw3 {
+    bottom: 200px;
+    right: 20%;
+    animation-delay: 1s;
+}
+
+.paw4 {
+    bottom: 220px;
+    right: 15%;
+    animation-delay: 1.5s;
+}
+
+@keyframes pawFade {
+    0% {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+    50% {
+        opacity: 0.7;
+        transform: scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .title {
+        font-size: 2em;
+    }
+    
+    .subtitle {
+        font-size: 1em;
+    }
+    
+    .sun {
+        width: 60px;
+        height: 60px;
+        top: 30px;
+        right: 50px;
+    }
+}
